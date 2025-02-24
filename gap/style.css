@@ -1,0 +1,70 @@
+/* 🌍 Foydalanuvchi interfeysining fonini tayyorlash */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #000428, #004e92);
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+/* 🌍 Yer konteyneri */
+.earth-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+}
+
+/* 🌍 Yerni yaratish */
+.earth {
+    width: 100%;
+    height: 100%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Blue_Marble_2002.png/800px-Blue_Marble_2002.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.2);
+    animation: rotateEarth 30s linear infinite;
+}
+
+/* 🌍 Yerning aylanadigan animatsiyasi */
+@keyframes rotateEarth {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 🌍 Matn qismi */
+.content {
+    position: absolute;
+    z-index: 10;
+}
+
+/* 🌍 Tugma */
+.btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}

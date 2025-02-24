@@ -1,0 +1,23 @@
+.earth-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #000428, #004e92);
+    overflow: hidden;
+  }
+  
+  .earth {
+    width: 300px;
+    height: 300px;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Blue_Marble_2002.png/800px-Blue_Marble_2002.png');
+    background-size: cover;
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0.5;
+  }
+  
