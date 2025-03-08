@@ -8,36 +8,30 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [gender, setGender] = useState("");
+  const [error, setError] = useState("");
+
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setError("");
 
-    const userData = {
-      name,
-      email,
-      password,
-      birthDate,
-      gender,
-    };
-
-    // 🚀 Ma'lumotlarni backendga jo‘natish
     try {
       const response = await fetch("http://localhost:3001/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userData),
+        body: JSON.stringify({ name, email, password, birthDate, gender }),
       });
 
       const data = await response.json();
       if (response.ok) {
-        alert("✅ Ro‘yxatdan muvaffaqiyatli o‘tdingiz! Profilga o'tmoqdasiz...");
-        navigate("/profile");
+        alert("✅ Ro‘yxatdan o‘tish muvaffaqiyatli! Kirish sahifasiga yo‘naltirilmoqdasiz...");
+        navigate("/login");
       } else {
-        alert(`❌ Xatolik: ${data.message}`);
+        setError(data.message || "❌ Ro‘yxatdan o‘tishda xatolik!");
       }
     } catch (error) {
-      alert("❌ Server bilan bog‘lanishda xatolik!");
+      setError("❌ Server bilan bog‘lanishda xatolik!");
     }
   };
 
@@ -46,6 +40,8 @@ const Register = () => {
       <div className="register-box">
         <h1 className="register-title">Yangi Profil Yarating</h1>
         <p className="register-subtitle">Bu tez va oson</p>
+
+        {error && <p className="error-message">{error}</p>}
 
         <form onSubmit={handleRegister}>
           <input
@@ -57,20 +53,18 @@ const Register = () => {
           />
           <input
             type="email"
-            placeholder="Email yoki telefon"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
           <input
             type="password"
-            placeholder="Yangi parol"
+            placeholder="Parol"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-
-          {/* Tug‘ilgan sana */}
           <input
             type="date"
             value={birthDate}
@@ -78,25 +72,23 @@ const Register = () => {
             required
           />
 
-          {/* Jins tanlash */}
+          {/* Gender selection */}
           <div className="gender-selection">
             <label>
               <input
                 type="radio"
-                name="gender"
                 value="male"
+                checked={gender === "male"}
                 onChange={(e) => setGender(e.target.value)}
-                required
               />
               Erkak
             </label>
             <label>
               <input
                 type="radio"
-                name="gender"
                 value="female"
+                checked={gender === "female"}
                 onChange={(e) => setGender(e.target.value)}
-                required
               />
               Ayol
             </label>
@@ -105,12 +97,10 @@ const Register = () => {
           <button type="submit" className="register-btn">Ro‘yxatdan o‘tish</button>
         </form>
 
-        {/* Hisob mavjud bo‘lsa */}
-        <p className="already-account">
+        {/* Login sahifasiga yo‘naltirish */}
+        <p className="have-account">
           Allaqachon hisobingiz bormi?{" "}
-          <span className="login-link" onClick={() => navigate("/login")}>
-            Kirish
-          </span>
+          <span className="login-link" onClick={() => navigate("/login")}>Kirish</span>
         </p>
       </div>
     </div>

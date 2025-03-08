@@ -1,5 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* 🔳 Asosiy styling */
+.app-container {
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  /* 🌙 Qora fon */
+  .dark-mode {
+    background: #1c1c1c;
+    color: white;
+  }
+  
+  /* 🌞 Oq fon */
+  body {
+    background: #f0f2f5;
+    color: black;
+  }
+  
+  /* 🔘 Dark Mode tugmasi */
+  .toggle-theme-btn {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .toggle-theme-btn:hover {
+    background: #0056b3;
+  }
+  
+  /* 🌙 Qora fon holati uchun tugma styling */
+  .dark-mode .toggle-theme-btn {
+    background: #ffcc00;
+    color: black;
+  }
+  
+  .dark-mode .toggle-theme-btn:hover {
+    background: #e6b800;
+  }
+  
   

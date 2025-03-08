@@ -57,6 +57,11 @@ const Login = () => {
           <button type="submit" className="login-btn">Kirish</button>
         </form>
 
+        {/* Facebook orqali kirish */}
+        <div className="social-login">
+          <img src="/facebook-logo.png" alt="Facebook Logo" className="facebook-logo" />
+        </div>
+
         {/* Agar foydalanuvchida hisob bo‘lmasa */}
         <p className="no-account">
           Hisobingiz yo‘qmi?{" "}

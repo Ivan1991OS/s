@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #f0f2f5;
+  background: #f0f2f5; /* Oq fon */
 }
 
 .register-box {
@@ -23,7 +23,7 @@
 
 .register-subtitle {
   font-size: 16px;
-  color: gray;
+  color: rgb(70, 70, 70);
   margin-bottom: 15px;
 }
 
@@ -39,10 +39,11 @@ input {
   display: flex;
   justify-content: space-around;
   margin: 10px 0;
+  color: #333;
 }
 
 .register-btn {
-  background: #42b72a;
+  background: #28a745;
   color: white;
   border: none;
   padding: 12px;
@@ -54,10 +55,17 @@ input {
 }
 
 .register-btn:hover {
-  background: #36a420;
+  background: #218838;
 }
 
-.already-account {
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.have-account {
+  color: #333;
   margin-top: 15px;
   font-size: 14px;
 }
@@ -66,4 +74,28 @@ input {
   color: #1877f2;
   font-weight: bold;
   cursor: pointer;
+}
+
+/* Agar qora fon kerak bo‘lsa */
+.dark-mode .register-container {
+  background: #1c1c1c;
+}
+
+.dark-mode .register-box {
+  background: #2c2c2c;
+  color: white;
+}
+
+.dark-mode input {
+  background: #3c3c3c;
+  color: white;
+  border: 1px solid #555;
+}
+
+.dark-mode .register-btn {
+  background: #198754;
+}
+
+.dark-mode .login-link {
+  color: #42a5f5;
 }
